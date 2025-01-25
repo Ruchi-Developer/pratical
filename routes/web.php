@@ -14,17 +14,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/register', function () {
-//     return view('register');
-// });
 Route::group(['middleware' => 'guest'], function(){
- Route::get('/register', [UserController::class, 'create'])->name('register');
- Route::post('register', [UserController::class, 'store'])->name('register.store');
-// Route::get('states/{country}', [UserController::class, 'getStates']);
-// Route::get('cities/{state}', [UserController::class, 'getCities']);
+
 Route::get('/get-countries', [UserController::class, 'fetchCountries'])->name('get.countries');
 Route::get('/get-states', [UserController::class, 'fetchStates'])->name('get.states');
 Route::get('/get-cities', [UserController::class, 'fetchCities'])->name('get.cities');
