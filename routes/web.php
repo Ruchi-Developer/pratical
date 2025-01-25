@@ -26,9 +26,6 @@ Route::post('/', [AuthController::class, 'login'])->name('login');
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'store'])->name('register');
 });
-//Route::get('/home', [AuthController::class, 'view'])->name('home')->middleware('auth.custom');
-
-//Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/home', [AuthController::class, 'view'])->name('home');
